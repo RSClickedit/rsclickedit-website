@@ -259,6 +259,19 @@
         });
     });
 
+    // "Request a quote" on an event kit pre-fills the service and names the kit
+    document.querySelectorAll("[data-quote]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var service = form.elements.service;
+        service.value = "Event branding kit";
+        setError(service, "");
+        var message = form.elements.message;
+        if (!message.value.trim()) message.value = "I'm interested in the " + link.getAttribute("data-quote") + ".";
+        // After the jump to #contact, put the cursor in the first field
+        setTimeout(function () { form.elements.name.focus({ preventScroll: true }); }, 0);
+      });
+    });
+
     summary.addEventListener("click", function (event) {
       var link = event.target.closest("a");
       if (!link) return;

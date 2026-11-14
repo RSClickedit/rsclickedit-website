@@ -670,6 +670,69 @@ dialog { padding: 0; border: 0; }
   .service { grid-template-columns: 1fr; }
 }
 
+/* ---------- Event branding kits ---------- */
+
+.btn-outline { background: var(--paper); color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+.kits-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.kits-intro .lead { margin: 20px 0 12px; }
+.kits-intro p:last-child { margin: 0; max-width: 40ch; }
+.kits-figure { margin: 0; }
+.kits-figure img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--fog); }
+.kits-figure figcaption { margin-top: 10px; }
+
+.kit-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+.kit {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px clamp(20px, 2.4vw, 36px) 32px;
+  border-right: 1px solid var(--rule);
+}
+.kit:last-child { border-right: 0; }
+.kit-name {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-variation-settings: "wdth" 125;
+}
+.kit-for { margin: 0; color: var(--graphite); }
+.kit ul { flex: 1; margin: 8px 0 12px; padding: 0; list-style: none; }
+.kit ul li { padding: 10px 0; border-top: 1px solid var(--rule); font-size: 1rem; }
+.kit .btn { align-self: flex-start; }
+
+.kit-featured { background: var(--ink); color: var(--paper); }
+.kit-featured .kit-for { color: var(--smoke); }
+.kit-featured ul li { border-color: var(--rule-dark); }
+.kit-featured .btn { border-color: var(--paper); background: var(--paper); color: var(--ink); }
+.kit-featured .btn:hover { background: var(--ink); color: var(--paper); }
+.kit-featured :focus-visible { outline-color: var(--paper); }
+
+.kits-foot { max-width: 70ch; margin: 28px 0 0; color: var(--graphite); font-size: 0.9375rem; }
+
+@media (max-width: 900px) {
+  .kits-intro { grid-template-columns: 1fr; }
+  .kit-list { grid-template-columns: 1fr; }
+  .kit { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .kit:not(.kit-featured) { padding-inline: 0; }
+  .kit:last-child { border-bottom: 0; }
+}
+
 /* ---------- About ---------- */
 
 .about-grid {
