@@ -259,6 +259,17 @@
         });
     });
 
+    // Arriving from the For Schools page (index.html?quote=...#contact) pre-fills the form
+    var requested = new URLSearchParams(window.location.search).get("quote");
+    if (requested) {
+      form.elements.service.value = "School package";
+      if (!form.elements.message.value.trim()) {
+        form.elements.message.value = requested === "School"
+          ? "I'm reaching out about a project for our school."
+          : "I'm interested in the " + requested + " package.";
+      }
+    }
+
     // "Request a quote" on an event kit pre-fills the service and names the kit
     document.querySelectorAll("[data-quote]").forEach(function (link) {
       link.addEventListener("click", function () {
