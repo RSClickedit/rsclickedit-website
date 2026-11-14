@@ -311,6 +311,9 @@ dialog { padding: 0; border: 0; }
   transition: transform .2s var(--ease-out);
 }
 .play-badge .icon { width: 24px; height: 24px; margin-left: 3px; }
+/* In the hero tile the badge sits in a corner so the clip's subject stays visible */
+.reel-tile .play-badge { inset: auto auto 12px 12px; width: 52px; height: 52px; margin: 0; }
+.reel-tile .play-badge .icon { width: 20px; height: 20px; }
 .reel-tile:hover .play-badge { transform: scale(1.08); }
 
 .reel-caption { margin: 14px 0 0; font-size: 0.9375rem; font-weight: 600; }
