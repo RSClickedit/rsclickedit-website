@@ -58,7 +58,11 @@ The other films play from `assets/video/`. Sizes matter when choosing a host (Gi
 The site is published with GitHub Pages from the `main` branch of [RSClickedit/rsclickedit-website](https://github.com/RSClickedit/rsclickedit-website), at https://www.rsclickedit.com. The bare rsclickedit.com forwards to www.
 
 - **Domain:** the `CNAME` file tells GitHub Pages which domain to use. Don't delete it.
-- **DNS (at Register.com):** rsclickedit.com has four A records pointing to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, and `www` is a CNAME to `rsclickedit.github.io`. The MX and TXT records belong to Google Workspace email. Leave them alone.
+- **DNS and https (Cloudflare, free plan):** the domain's nameservers are `bingo.ns.cloudflare.com` and `elmo.ns.cloudflare.com`. Cloudflare provides the https certificate and forwards visitors to GitHub.
+  - rsclickedit.com: four A records to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, proxied (orange cloud).
+  - `www`: a CNAME to `rsclickedit.github.io`, proxied.
+  - Settings: SSL/TLS mode **Full**, with **Always Use HTTPS** on. Leave "Enforce HTTPS" off in GitHub's Pages settings.
+- **Email (Google Workspace):** the five MX records, the `google._domainkey` DKIM TXT record and the `google-site-verification` TXT record must stay as they are. The `mail` A records are left over from Register.com and set to "DNS only".
 
 ### Publishing a change
 
