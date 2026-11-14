@@ -594,6 +594,37 @@ dialog { padding: 0; border: 0; }
   .section-head { grid-template-columns: 1fr; }
 }
 
+/* ---------- Client quote ---------- */
+
+.quote-band { padding-top: 0; }
+.pull-quote {
+  display: grid;
+  grid-template-columns: minmax(0, 9fr) minmax(0, 3fr);
+  gap: 24px 48px;
+  align-items: end;
+  margin: 0;
+  padding-top: clamp(32px, 4vw, 56px);
+  border-top: 2px solid var(--ink);
+}
+.pull-quote blockquote { margin: 0; }
+.pull-quote p {
+  max-width: 30ch;
+  margin: 0;
+  font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  text-indent: -0.42em;   /* hang the opening quote mark in the margin */
+  text-wrap: balance;
+}
+.pull-quote figcaption { display: flex; flex-direction: column; gap: 4px; }
+.quote-name { font-weight: 600; }
+
+@media (max-width: 800px) {
+  .pull-quote { grid-template-columns: 1fr; }
+  .pull-quote p { text-indent: 0; }
+}
+
 /* ---------- Featured film ---------- */
 
 .film-feature-grid {
