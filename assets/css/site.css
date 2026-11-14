@@ -683,6 +683,8 @@ dialog { padding: 0; border: 0; }
 .clients h3 { font-size: 0.9375rem; font-weight: 600; letter-spacing: 0; }
 .client-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
 .client-list li { padding: 6px 12px; border: 1px solid var(--ink); background: var(--paper); font-size: 0.9375rem; }
+.clients-sub { margin-top: 28px; }
+.client-list-quiet li { border-color: var(--rule); color: var(--graphite); }
 
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; }
