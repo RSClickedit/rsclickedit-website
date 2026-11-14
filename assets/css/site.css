@@ -947,6 +947,31 @@ dialog { padding: 0; border: 0; }
 .masonry li[hidden] { display: none; }
 .masonry-2 { columns: 2 320px; }
 
+/* Row-by-row photo layout: every photo keeps its full shape and each row
+   shares one height. Each item's --r is its width divided by its height. */
+.justified {
+  --row-h: 280px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.justified::after { content: ""; flex-grow: 1000000; }
+.justified li {
+  flex-grow: calc(var(--r) * 100);
+  flex-shrink: 1;
+  flex-basis: calc(var(--r) * var(--row-h));
+  min-width: 0;
+}
+.justified li[hidden] { display: none; }
+.justified .tile img { width: 100%; height: auto; }
+
+@media (max-width: 700px) {
+  .justified { --row-h: 150px; gap: 8px; }
+}
+
 .tile {
   position: relative;
   display: block;

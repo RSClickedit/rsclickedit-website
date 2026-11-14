@@ -125,6 +125,10 @@
         item.hidden = !match;
         if (match) shown += 1;
       });
+      // Hide a whole section (and its heading) when none of its photos match
+      document.querySelectorAll("[data-group]").forEach(function (group) {
+        group.hidden = !group.querySelector("[data-cat]:not([hidden])");
+      });
       if (status) status.textContent = "Showing " + shown + " photographs";
     });
   }
