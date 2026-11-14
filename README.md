@@ -55,4 +55,20 @@ The other films play from `assets/video/`. Sizes matter when choosing a host (Gi
 
 ## Hosting
 
-Any static host works. Netlify, Cloudflare Pages and GitHub Pages all let you upload the `website` folder as-is.
+The site is published with GitHub Pages from the `main` branch of [RSClickedit/rsclickedit-website](https://github.com/RSClickedit/rsclickedit-website), at https://www.rsclickedit.com. The bare rsclickedit.com forwards to www.
+
+- **Domain:** the `CNAME` file tells GitHub Pages which domain to use. Don't delete it.
+- **DNS (at Register.com):** rsclickedit.com has four A records pointing to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153, and `www` is a CNAME to `rsclickedit.github.io`. The MX and TXT records belong to Google Workspace email. Leave them alone.
+
+### Publishing a change
+
+Edit the files, then in Terminal:
+
+```bash
+cd ~/Desktop/"Creative Media Website"/website
+git add -A
+git commit -m "Describe the change"
+git push
+```
+
+GitHub republishes the site within a minute or two.
