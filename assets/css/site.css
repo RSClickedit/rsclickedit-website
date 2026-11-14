@@ -524,6 +524,30 @@ dialog { padding: 0; border: 0; }
   .display .line-3, .display .line-last { display: inline; }
 }
 
+/* Below the wide layout the "Meet Ronald" chip leaves the headline, and both
+   actions sit right under the description */
+.hero-actions { display: none; }
+.meet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 18px 0 6px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease;
+}
+.meet-link img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; object-position: 50% 25%; }
+.meet-link:hover { background: var(--ink); color: var(--paper); }
+@media (max-width: 1099px) {
+  .display .chip { display: none; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+}
+
 /* Load sequence: brackets lock focus, then the headline settles in.
    The "motion" class is set by a tiny script in <head> only when the page is
    visible and the visitor hasn't asked for reduced motion, so the headline is
@@ -536,6 +560,7 @@ dialog { padding: 0; border: 0; }
   .motion .display .line:nth-child(3) { animation-delay: .46s; }
   .motion .display .line:nth-child(4) { animation-delay: .54s; }
   .motion .hero-caption { animation: rise .8s var(--ease-out) .7s both; }
+  .motion .hero-actions { animation: rise .8s var(--ease-out) .78s both; }
 }
 
 @keyframes af-lock {
@@ -636,7 +661,8 @@ dialog { padding: 0; border: 0; }
 .film-copy .lead { margin-top: 20px; }
 .film-player video,
 .film-card video,
-.film-hero video {
+.film-hero video,
+.case-study video {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #111;
@@ -796,6 +822,36 @@ dialog { padding: 0; border: 0; }
   gap: clamp(40px, 5vw, 80px);
 }
 .contact-copy .lead { margin-top: 20px; }
+
+/* What happens after someone sends the form */
+.next-steps { margin-top: 32px; }
+.next-steps h3 { font-size: 0.9375rem; font-weight: 600; letter-spacing: 0; }
+.next-steps ol { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: step; }
+.next-steps li {
+  position: relative;
+  padding: 14px 0 14px 44px;
+  border-top: 1px solid var(--rule);
+  color: var(--graphite);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  counter-increment: step;
+}
+.next-steps li strong { display: block; color: var(--ink); font-size: 1rem; font-weight: 600; }
+.next-steps li::before {
+  content: counter(step);
+  position: absolute;
+  top: 14px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
 .contact-details { margin: 36px 0 0; }
 .contact-details div {
   display: grid;
@@ -1175,6 +1231,40 @@ dialog { padding: 0; border: 0; }
 
 @media (max-width: 900px) {
   .film-list { grid-template-columns: 1fr 1fr; }
+}
+
+/* Case studies: film beside the facts */
+.case-study {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 24px clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+.case-study + .case-study {
+  margin-top: clamp(48px, 6vw, 88px);
+  padding-top: clamp(48px, 6vw, 88px);
+  border-top: 1px solid var(--rule);
+}
+.case-study-copy > .meta { margin: 0; }
+.case-study-title { margin-top: 8px; font-size: clamp(1.5rem, 2.6vw, 2.25rem); letter-spacing: -0.03em; }
+.case-facts { margin: 20px 0 0; }
+.case-facts > div {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 6px 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+}
+.case-facts dt { font-size: 0.9375rem; font-weight: 600; }
+.case-facts dd { margin: 0; }
+.case-facts ul { margin: 0; padding-left: 18px; }
+.case-facts li + li { margin-top: 6px; }
+.case-facts a { text-underline-offset: 4px; }
+@media (max-width: 900px) {
+  .case-study { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .case-facts > div { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .film-list, .film-list-2 { grid-template-columns: 1fr; }

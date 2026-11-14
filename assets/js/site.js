@@ -248,7 +248,7 @@
         .then(function (response) {
           if (!response.ok) throw new Error("Request failed");
           form.reset();
-          formStatus.textContent = "Inquiry sent. We'll be in touch soon.";
+          formStatus.textContent = "Inquiry sent. We'll reply within 1 business day.";
         })
         .catch(function () {
           formStatus.textContent = "Your inquiry didn't send. Check your connection and try again, or email " + contactEmail + ".";

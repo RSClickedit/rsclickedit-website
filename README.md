@@ -30,6 +30,8 @@ These are drafts written from your portfolio. Edit them in `index.html`:
 - **"Recent work for" client list.** Confirm each name is correct and that you're comfortable listing them publicly.
 - **Services descriptions and "Typical projects" lists.**
 - **Alt text and captions** on the portfolio pages. They were written from file names and small previews, so check that they describe each photo accurately.
+- **Case studies on the Film page** (Innovate & Inspire and Imhotep). The goals and "What we did" lists were written from the films themselves. If you have a real result, such as views, applications or turnout, it can be added as a "Results" row.
+- **"What happens next" beside the contact form.** It promises a reply within 1 business day and a custom quote for every project.
 
 ## Films
 
