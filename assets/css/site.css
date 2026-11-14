@@ -1008,9 +1008,18 @@ dialog { padding: 0; border: 0; }
 }
 .page-intro .lead { margin: 0; max-width: 46ch; }
 .page-intro .meta { margin: 0; }
-.page-intro .credential { margin-top: 20px; }
+.page-intro .credentials { margin-top: 20px; }
+.page-intro .credential-note { margin-top: 12px; }
 
-/* Approved-vendor badge (For Schools page and About) */
+/* Vendor and insurance badges (For Schools page and About) */
+.credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .credential {
   display: inline-flex;
   align-items: center;
@@ -1031,7 +1040,7 @@ dialog { padding: 0; border: 0; }
   background: var(--ink);
   color: var(--paper);
 }
-.about-copy .credential { margin: -8px 0 28px; }
+.about-copy .credentials { margin: -8px 0 28px; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
 .filter {
